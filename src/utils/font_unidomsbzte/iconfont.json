@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1110436",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "9295061",
+      "name": "置顶",
+      "font_class": "zhiding",
+      "unicode": "e592",
+      "unicode_decimal": 58770
+    },
+    {
+      "icon_id": "19986055",
+      "name": "加",
+      "font_class": "jia",
+      "unicode": "e7b1",
+      "unicode_decimal": 59313
+    },
+    {
+      "icon_id": "20186172",
+      "name": "排序sort-升",
+      "font_class": "paixusort-sheng",
+      "unicode": "e7c6",
+      "unicode_decimal": 59334
+    }
+  ]
+}

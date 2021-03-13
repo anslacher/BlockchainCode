@@ -1,0 +1,141 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px;
+}
+.header .table {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid #eee;
+}
+.header .table .icoFa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .table .icoFa .ico {
+  font-size: 50px;
+}
+.header .portrait {
+  width: 80px;
+  height: 80px;
+  border: 1px solid black;
+}
+.index .content {
+  width: 710px;
+  height: 100%;
+  margin: 0 20px;
+}
+.choice {
+  width: 196px;
+  text-align: center;
+  line-height: 100px;
+}
+.active {
+  color: #10aec2;
+  border-bottom: 4px solid #10aec2;
+}
+.headList {
+  display: flex;
+  font-size: 30px;
+  justify-content: space-between;
+  color: #6a6d6d;
+}
+.childList {
+  height: 130px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+  margin-top: 5px;
+}
+.childList .eee {
+  display: inline-block;
+  color: #888888;
+}
+.childList .inline {
+  display: inline-block;
+}
+.childList .rank {
+  font-size: 23px;
+  color: #646464;
+}
+.Asset {
+  height: 1000px;
+  background: #0F1836;
+  overflow: hidden;
+}
+.Asset .SimulationFA {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.Asset .SimulationFA .Simulation {
+  background: rgba(211, 211, 211, 0.3);
+  width: 660px;
+  height: 302px;
+  opacity: 0.5px;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.Asset .SimulationFA .Simulation > Text:nth-of-type(2) {
+  margin-top: 30px;
+  font-size: 70px;
+}
+.Asset .SimulationFA .Simulation > Text:nth-last-of-type(3) {
+  margin-top: 30px;
+}
+.Asset .AssetList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Asset .AssetList .LisFa {
+  width: 660px;
+  background: rgba(211, 211, 211, 0.3);
+  height: 200px;
+  border-radius: 15px;
+  display: flex;
+  margin-top: 18px;
+  flex-direction: column;
+}
+.Asset .AssetList .LisFa .List {
+  display: flex;
+  justify-content: space-around;
+}
+.Asset .AssetList .LisFa .List > View:nth-of-type(1) {
+  width: 100px;
+}
+.Asset .AssetList .LisFa .Virtual {
+  margin: 20px 0;
+}
+.Asset .AssetList .LisFa .Virtual View {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Asset .AssetList .LisFa .Virtual > View:nth-of-type(1) > Text {
+  font-size: 60px;
+  color: #ebdb00;
+}
+.Asset .AssetList .LisFa .Virtual > View:nth-of-type(2) {
+  width: 100px;
+}
+.Asset .AssetList .LisFa .Virtual > View:nth-of-type(2) > Text {
+  font-size: 55px;
+}
+.Asset .AssetList .LisFa .Virtual > View:nth-of-type(3) > Text {
+  font-size: 40px;
+}
+.up {
+  color: green;
+}
+.down {
+  color: red;
+}

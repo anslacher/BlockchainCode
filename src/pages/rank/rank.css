@@ -1,0 +1,8 @@
+.rankIndex .header {
+  display: flex;
+  justify-content: space-around;
+}
+.rankIndex .cont .contTop {
+  display: flex;
+  justify-content: space-around;
+}
