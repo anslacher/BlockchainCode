@@ -1,15 +1,30 @@
 .rankIndex .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   font-size: 25px;
+}
+.rankIndex .header > View:last-child {
+  margin-right: 40px ;
+}
+.rankIndex .header .top {
+  margin-left: 20px;
+}
+.rankIndex .header .btcName {
+  margin-left: 50px;
+}
+.rankIndex .header .changePercent {
+  margin-left: 100px;
 }
 .rankIndex .cont .contTop {
   height: 100px;
   margin-top: 10px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border-bottom: 1px solid #eee;
   align-items: center;
+}
+.rankIndex .cont .contTop .top {
+  margin-left: 20px;
 }
 .rankIndex .cont .contTop .btcImg {
   display: flex;
@@ -19,4 +34,15 @@
 .rankIndex .cont .contTop .btcImg Image {
   width: 30px;
   height: 30px;
+}
+.rankIndex .cont .contTop .btcImg > View {
+  font-size: 27px;
+  width: 200px;
+  margin-left: 20px;
+}
+.up {
+  color: red;
+}
+.down {
+  color: #0e970e;
 }

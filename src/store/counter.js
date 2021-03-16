@@ -7,10 +7,13 @@ class AppStore {
   //   makeAutoObservable(this)
   // }
 
-  @observable get =[{
-    
-  }]
+  @observable get = []
   @observable current = 0;
+  @action getRank(value){
+    value.map((v,i)=>{
+      this.get.push(v)
+    })
+  }
   @action handleClick(value) {
     this.current = value
   }

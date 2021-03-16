@@ -1,11 +1,12 @@
 .information {
 
   .newFa {
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     .new {
       margin-top: 20px;
       display: flex;
@@ -16,17 +17,54 @@
       height: 200px;
       border: 1px solid #eee;
       border-radius: 30px;
-      box-shadow: 10px 10px 5px #eee ;
-      >View{
+      box-shadow: 10px 10px 5px #eee;
+
+      >View {
         width: 670px;
         height: 70px;
-        
-        Text{
-          float:right;
+
+        Text {
+          float: right;
           margin-right: 40px;
         }
       }
     }
 
+  }
+}
+
+
+
+.QuickNews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .NewsHeader{
+    height: 70px;
+    width: 750px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    >Text{
+      letter-spacing: 4px;
+    }
+  }
+  .ListQuick{
+    width: 700px;
+
+  }
+  .footerQuick{
+    display: flex;
+    justify-content: space-between;
+    View:nth-of-type(1){
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      Text{
+        margin-right: 10px;
+      }
+    }
   }
 }

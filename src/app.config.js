@@ -5,7 +5,8 @@ export default {
     'pages/rank/rank',
     'pages/search/search',
     'pages/settingIndex/settingIndex',
-    'pages/Details/Details'
+    'pages/Details/Details',
+    'pages/NewsDetails/NewsDetails'
   ],
   window: {
     backgroundTextStyle: 'light',
