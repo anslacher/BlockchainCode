@@ -2,7 +2,10 @@ export default {
   pages: [
     'pages/index/index',
     'pages/Information/information',
-    'pages/rank/rank'
+    'pages/rank/rank',
+    'pages/search/search',
+    'pages/settingIndex/settingIndex',
+    'pages/Details/Details'
   ],
   window: {
     backgroundTextStyle: 'light',

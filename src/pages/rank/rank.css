@@ -1,8 +1,22 @@
 .rankIndex .header {
   display: flex;
   justify-content: space-around;
+  font-size: 25px;
 }
 .rankIndex .cont .contTop {
+  height: 100px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-around;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+.rankIndex .cont .contTop .btcImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rankIndex .cont .contTop .btcImg Image {
+  width: 30px;
+  height: 30px;
 }

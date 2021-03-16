@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { View, Button, Text, Image } from '@tarojs/components'
 import { observer, inject } from 'mobx-react'
+import Taro from '@tarojs/taro'
 
 import './rank.less'
 
@@ -9,13 +10,18 @@ class Cont extends Component {
   constructor() {
     super()
   }
+  linkTo(){
+    Taro.navigateTo({
+      url:'../Details/Details'
+    })
+  }
   render() {
     return (
-      <View className='contTop'>
+      <View className='contTop' onClick={this.linkTo.bind(this)}>
         <View className='top'>1</View>
           <View className='btcImg'>
-            <Image width={100} src='https://s2.feixiaoquan.com/logo/1/bitcoin.png?x-oss-process=style/coin_36_webp'></Image>
-            <View className='btcName'>BTC</View>
+            <Image   src='https://s2.feixiaoquan.com/logo/1/bitcoin.png?x-oss-process=style/coin_36_webp'></Image>
+            <View className='btcName'>BTC/比特币</View>
           </View>
           <View className='uOrd'>
             <Text>7.97</Text>
