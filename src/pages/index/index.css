@@ -1,3 +1,7 @@
+.index {
+  color: #3bbd7d;
+  background: #1d2228;
+}
 .header {
   display: flex;
   justify-content: space-between;
@@ -60,6 +64,24 @@
 .childList .rank {
   font-size: 23px;
   color: #646464;
+}
+.block {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.block View {
+  width: 200px;
+  height: 80px;
+  border: 1px solid #10aec2;
+  border-radius: 20px;
+  background: #10aec2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eee;
+  margin: 10px;
 }
 .Asset {
   height: 1000px;
@@ -134,9 +156,29 @@
 .Asset .AssetList .LisFa .Virtual > View:nth-of-type(3) > Text {
   font-size: 40px;
 }
+.butt {
+  left: 50%;
+  margin-left: -80px;
+  position: fixed;
+  bottom: 100px;
+}
+.butt View {
+  width: 160px;
+  height: 50px;
+  border-radius: 20px;
+  background: #6190E8;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .up {
   color: green;
 }
 .down {
   color: red;
+}
+Image {
+  width: 40px;
+  height: 40px;
 }

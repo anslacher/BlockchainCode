@@ -1,4 +1,8 @@
+.rankIndex {
+  background: #1d2228;
+}
 .rankIndex .header {
+  color: #77787a;
   display: flex;
   justify-content: space-between;
   font-size: 25px;
@@ -16,15 +20,22 @@
   margin-left: 100px;
 }
 .rankIndex .cont .contTop {
-  height: 100px;
+  height: 125px;
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #313131;
   align-items: center;
 }
 .rankIndex .cont .contTop .top {
+  background: #e4a001;
+  padding: 3px 10px;
   margin-left: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+.rankIndex .cont .contTop .top .Text {
+  text-align: center;
 }
 .rankIndex .cont .contTop .btcImg {
   display: flex;
@@ -32,12 +43,11 @@
   align-items: center;
 }
 .rankIndex .cont .contTop .btcImg Image {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 .rankIndex .cont .contTop .btcImg > View {
-  font-size: 27px;
-  width: 200px;
+  font-size: 28px;
   margin-left: 20px;
 }
 .up {
@@ -45,4 +55,7 @@
 }
 .down {
   color: #0e970e;
+}
+.rank1 {
+  color: #fefefe;
 }

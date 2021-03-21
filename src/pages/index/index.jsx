@@ -2,7 +2,7 @@ import { Component, useContext, useState } from 'react'
 import { View, Button, Text, Image, } from '@tarojs/components'
 import { AtSegmentedControl } from 'taro-ui'
 import Taro from '@tarojs/taro'
-import InPage from '../../component/concerns'
+import Seach from '../../component/concerns'
 import { observer, inject } from 'mobx-react'
 import '../../utils/font_unidomsbzte/iconfont.css'
 
@@ -15,7 +15,8 @@ class Header extends Component {
   constructor() {
     super()
     this.state = {
-      Toggle: 0
+      Toggle: 0,
+      user_str: []
     }
 
   }
@@ -59,6 +60,9 @@ class Header extends Component {
   }
 
 
+
+
+
   render() {
     return (
       <View className='header'>
@@ -66,18 +70,18 @@ class Header extends Component {
         </View>
         <View className='at-row'>
           <View className='at-col at-col-1 at-col--auto'>
-            <View className='portrait'>头像</View>
+            {/* <View className='portrait'>头像</View> */}
           </View>
           <View className='at-col table' >
             <View className={this.props.store.current == 0 ? 'active choice' : 'choice'} onClick={this.cSwitch.bind(this, 0)}>我关注的</View>
-            <View className={this.props.store.current == 1 ? 'active choice' : 'choice'} onClick={this.cSwitch.bind(this, 1)}>模拟资产</View>
+            <View className={this.props.store.current == 1 ? 'active choice' : 'choice'} onClick={this.cSwitch.bind(this, 1)}>去搜索</View>
             {/* <View className={this.props.store.current == 2 ? 'active choice' : 'choice'} onClick={this.cSwitch.bind(this, 2)}>换算</View> */}
             <View className='icoFa'>
               <Text className="iconfont icon-shezhi ico" onClick={this.show.bind(this, 1)} style={{ color: [this.state.Toggle == 1 ? '#10aec2' : ''] }}></Text>
             </View>
-            <View className='icoFa'>
+            {/* <View className='icoFa'>
               <Text className="iconfont icon-jia ico" onClick={this.show.bind(this, 2)} style={{ color: [this.state.Toggle == 2 ? '#10aec2' : ''] }}></Text>
-            </View>
+            </View> */}
           </View>
         </View>
 
@@ -92,7 +96,10 @@ class Index extends Component {
 
   // componentWillMount() { }
 
-  // componentDidMount() { }
+  componentDidMount() {
+    // Taro.clearStorage()
+
+  }
 
   // componentWillUnmount() { }
 
@@ -101,13 +108,33 @@ class Index extends Component {
   // componentDidHide() { }
 
 
+  componentDidShow() {
+    Taro.getStorage({
+      key: 'user_str',
+      success: (res) => {
+        let arr = res.data.split(',')
+          
+          this.props.store.login_Str = arr
+          this.props.store.flag=true
+      },
+      fail: (err) => {
+
+      }
+
+    })
+
+    
+  }
+
+
+
   render() {
     // const { counterStore: { counter } } = this.props.store
     return (
-      <View>
+      <View >
         <Header></Header>
-        <View className='index'>
-          <InPage></InPage>
+        <View >
+          <Seach />
         </View>
       </View>
     )

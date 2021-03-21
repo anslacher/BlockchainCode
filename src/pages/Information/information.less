@@ -1,4 +1,11 @@
+.InFor {
+  color: #3bbd7d;
+  background: #1d2228;
+}
+
+
 .information {
+
 
   .newFa {
 
@@ -40,31 +47,68 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .NewsHeader{
+
+  .NewsHeader {
     height: 70px;
     width: 750px;
-    border-bottom: 1px solid #eee;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    >Text{
+
+    >Text {
       letter-spacing: 4px;
     }
   }
-  .ListQuick{
+
+  .ListQuick {
+    margin-top: 20px;
     width: 700px;
 
+    border-bottom: 1px solid #eee;
+    padding: 30px;
+
+    .conText {
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .conText {
+      overflow: hidden;
+    }
   }
-  .footerQuick{
+
+  .getdate {
+    margin-top: 40px;
+    display: flex;
+    // flex-direction:column-reverse;
+    justify-content: flex-end;
+  }
+
+  .footerQuick {
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
-    View:nth-of-type(1){
+
+    View:nth-of-type(1) {
+      font-size: 29px;
       display: flex;
       justify-content: center;
       align-items: center;
-      Text{
+
+      Text {
+        font-size: 29px;
         margin-right: 10px;
       }
+    }
+
+    .toDet {
+      // cursor:pointer;
+      color: rgb(160, 160, 160);
+      font-size: 27px;
+      text-decoration: underline;
     }
   }
 }

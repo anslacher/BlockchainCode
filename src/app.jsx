@@ -22,7 +22,7 @@ class App extends Component {
   
   render () {
     return (
-      <Provider store={store}>
+      <Provider store={store} className='index'>
         {this.props.children}
       </Provider>
     )

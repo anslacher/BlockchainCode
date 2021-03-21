@@ -3,18 +3,20 @@ export default {
     'pages/index/index',
     'pages/Information/information',
     'pages/rank/rank',
-    'pages/search/search',
     'pages/settingIndex/settingIndex',
     'pages/Details/Details',
-    'pages/NewsDetails/NewsDetails'
+    
   ],
   window: {
     backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#fff',
+    navigationBarBackgroundColor: '#1d2228',
     navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'black' 
+    navigationBarTextStyle: 'white' 
   },
   tabBar:{
+    color:'#3bbd7d',
+    selectedColor: '#3bbd7d',
+    backgroundColor:"#1d2228",
     list:[
       {
         pagePath:"pages/index/index",

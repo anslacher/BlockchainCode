@@ -1,7 +1,14 @@
+.index {
+  color: #3bbd7d;
+  background: #1d2228;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   margin: 0 10px;
+
+
 
   .table {
     // width: 1176px;
@@ -84,6 +91,25 @@
   }
 }
 
+
+.block {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  View {
+    width: 200px;
+    height: 80px;
+    border: 1px solid #10aec2;
+    border-radius: 20px;
+    background: #10aec2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #eee;
+    margin: 10px;
+  }
+}
 
 .Asset {
   height: 1000px;
@@ -192,10 +218,35 @@
 
 }
 
+.butt {
+  left: 50%;
+  margin-left: -80px;
+  position: fixed;
+  bottom: 100px;
+
+  View {
+    width: 160px;
+    height: 50px;
+    border-radius: 20px;
+    background: #6190E8;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    Text {}
+  }
+}
+
 .up {
   color: green;
 }
 
 .down {
   color: red;
+}
+
+Image {
+  width: 40px;
+  height: 40px;
 }

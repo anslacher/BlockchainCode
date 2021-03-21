@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: '资讯'
+  navigationBarTitleText: '每日资讯'
 }

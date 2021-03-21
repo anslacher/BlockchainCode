@@ -2,10 +2,8 @@ import { Component } from 'react'
 import { View, Button, Text, Image } from '@tarojs/components'
 import { observer, inject } from 'mobx-react'
 import Taro from '@tarojs/taro'
-import { AtMessage, AtButton } from 'taro-ui'
-import aaa from '../../component/message'
-
-
+import { AtMessage } from 'taro-ui'
+import msg from '../../component/message'
 import './rank.less'
 
 
@@ -17,15 +15,17 @@ class Cont extends Component {
 
   }
 
-  componentWillMount() {
-    
-
+  fnSub(value) {
+    let str = String(value)
+    let num = str.substring(0, 4)
+    return num;
   }
 
+
   fnTest(value) {
-    let pattern = /^(\-)\d+(\.\d{1,3})?$/,
-      str = value;
-    return pattern.test(str)
+    let pattern = /^(\-)\d+(\.\d{1,7})?$/;
+    let num = value
+    return pattern.test(num)
 
   }
   fnBillion = (val) => {
@@ -35,21 +35,22 @@ class Cont extends Component {
     let arr = str.split("")
 
     // console.log(arr);
-    arr.splice(vLength - 8,vLength )
+    arr.splice(vLength - 8, vLength)
     // let end=arr.map(Number)
     let end = ''
     for (let i = 0; i < arr.length; i++) {
-      end+=arr[i]
+      end += arr[i]
     }
 
-    return end+'亿';
+    return end + '亿';
 
   }
 
 
-  linkTo() {
+  linkTo(val) {
+
     Taro.navigateTo({
-      url: '../Details/Details'
+      url: `../Details/Details?ticker=${val}`
     })
   }
   render() {
@@ -57,19 +58,21 @@ class Cont extends Component {
     //   console.log(element);
     // });
     return (
-      <View>
+      <View className='rank1'>
         {this.props.store.get.map((v, i) =>
-          <View className='contTop' onClick={this.linkTo.bind(this)}>
-            <View className='top'>{v.rank}</View>
+
+          <View className='contTop' onClick={this.linkTo.bind(this, v.id)}>
+            <View className='top'><Text>{v.market_cap_rank}</Text></View>
             <View className='btcImg'>
-              <Image src={v.logo}></Image>
-              <View className='btcName'>{v.name}/{v.fullname}</View>
+              <Image src={v.image}></Image>
+              <View className='btcName'>{v.name}/{v.symbol}</View>
             </View>
             <View className='uOrd'>
-              <Text className={this.fnTest(v.change_percent) ? '.down' : '.up'}>{v.change_percent}</Text>
+              {/* {console.log(v.market_cap_change_percentage_24h)} */}
+              <Text className={this.fnTest(v.market_cap_change_percentage_24h) ? '.down' : '.up'}>{this.fnSub(v.market_cap_change_percentage_24h)}</Text>
             </View>
             <View>
-              <Text>{this.fnBillion(v.market_value_usd)}</Text>
+              <Text className='down'>{this.fnBillion(v.market_cap)}</Text>
             </View>
 
           </View>
@@ -94,32 +97,25 @@ class Index extends Component {
     this.state = {
       data: []
     }
-
   }
 
-  handleClick(err, type) {
-    Taro.atMessage({
-      'message': err,
-      'type': type,
-    })
-  }
-
-  componentWillMount() {
-
+  componentDidMount() {
     // 
     // console.log(Message);
-
     Taro.request({
-      url: 'https://dncapi.bqiapp.com/api/coin/web-coinrank?page=1&type=-1&pagesize=100&webp=1',
+      url: 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false',
       success: (res) => {
-        this.props.store.getRank(res.data.data)
+
+        this.props.store.getRank(res.data)
+
+
         // this.setState({
         //   data:this.props.store.get
         // })
         // console.log(this.state.data);
       },
       fail: function (err) {
-        aaa('网络超时请重试,', 'error')
+        msg('网络超时请重试,', 'error')
       }
     })
 
@@ -139,7 +135,7 @@ class Index extends Component {
           <View className='header'>
             <View className='top'>排名</View>
             <View className='btcName'>币种</View>
-            <View className='changePercent'>24H涨幅</View>
+            <View className='changePercent'>24H涨幅%</View>
             <View className='marketValue'>$市值</View>
           </View>
           <View className='cont'>

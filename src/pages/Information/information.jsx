@@ -1,10 +1,12 @@
-import { Component, useState } from 'react'
+import { Component, useState, useEffect } from 'react'
 import { View, Button, Text, Swiper, SwiperItem } from '@tarojs/components'
 import { observer, inject } from 'mobx-react'
 import { AtTabs, AtTabsPane, AtRate } from 'taro-ui'
 import Taro from '@tarojs/taro'
 
 import './information.less'
+import msg from '../../component/message'
+import getDate from '../../component/date'
 
 
 class SwiperApp extends Component {
@@ -73,40 +75,103 @@ let HeadToggle = () => {
 }
 
 
-let QuickNews = () => {
-  let [value, SetValue] = useState(4)
+@inject('store') @observer
+class QuickNews extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: [],
+      flag: 0
+    }
+  }
 
-  return (
-    <View>
-      <View className='QuickNews'>
-        <View className='NewsHeader'><Text>快讯</Text></View>
-        <View className='ListQuick'>
+  componentDidMount() {
 
-          <View>【总价值超53亿美元的BTC期权将于3月26日到期】Deribit官方发推称，其当前BTC期权未平仓合约价值120亿美元；ETH期权未平仓合约超过27亿美元。与此同时，总价值超53亿美元的比特币期权未平仓合约将于3月26日到期。目前，即将到期的BTC期权最大痛点为4万美元。注：期权中的最大痛点，在这个价位的期权买方最痛苦，也就是亏损最大， 即损失所有权利金，而期权卖方（机构居多）则获利最大，标的结算价会趋向于期权市场价值最低点位</View>
-          <View className='footerQuick'>
-            <View>
-              <Text>重要程度</Text>
-              <AtRate
-                value={value}
-              />
-            </View>
-            <View>时间:<Text></Text></View>
+    Taro.request({
+      url: 'http://api.coindog.com/live/list?limit=50',
+      success: (res) => {
+
+        this.setState({
+          data: res.data.list[0].lives
+        })
+
+        this.props.store.inFor = this.state.data
+
+      },
+      fail: function (err) {
+        msg('超时，请重试或稍后再试', 'error')
+      }
+    })
+
+    // Taro.request({
+    //   url
+    // })
+
+  }
+  // fn(value) {
+  //   Taro.navigateTo({
+  //     url:`../QuickNews/QuickNews?id=${value}`
+  //   })
+  // }
+
+  ifcont(value) {
+    if (this.state.flag == value) {
+      this.setState({
+        flag: 0
+      })
+    } else {
+      this.setState({
+        flag: value
+      })
+    }
+
+  }
+
+  render() {
+    return (
+      <View>
+        <View className='QuickNews' >
+          {/* <View className='NewsHeader'><Text>每日快讯</Text></View> */}
+          <View>
+            {
+              this.state.data.map((v, i) => <View className='ListQuick' onClick={this.ifcont.bind(this, v.id)}>
+                <View className={this.state.flag == v.id ? 'conTextor' : 'conText'}   >{v.content} </View>
+                <View className='getdate'><Text>{getDate(v.created_at)}</Text></View>
+                <View className='footerQuick'>
+                  <View>
+                    <Text>重要程度</Text>
+                    <AtRate
+                      value={v.grade}
+                    />
+
+                  </View>
+
+                  {this.state.flag == v.id ? <View></View> : <View className='toDet'>查看详情</View>}
+                  {/* <View>创建时间:<Text>{getDate(v.created_at)}</Text></View> */}
+                </View>
+              </View>
+              )
+            }
           </View>
 
         </View>
-
       </View>
-    </View>
-  )
+    )
+  }
 }
+
+
+
+
 
 
 @inject('store') @observer
 class information extends Component {
   constructor() {
-    super(...arguments)
+    super()
     this.state = {
       current: 0,
+      listData: 0
     }
   }
 
@@ -115,22 +180,29 @@ class information extends Component {
       current: value
     })
   }
+  fn() {
+    console.log(this.props.store.inFor);
+  }
 
+  componentWillMount() {
 
-
-
+  }
 
   render() {
-    const tabList = [{ title: '快讯' }, { title: '文章' }]
+    const tabList = []
     return (
-      <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
-        <AtTabsPane current={this.state.current} index={0} >
-          <View style='background-color: #FAFBFC;text-align: center;'><QuickNews /></View>
-        </AtTabsPane>
-        <AtTabsPane current={this.state.current} index={1}>
+      <View className='InFor'>
+        <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
+          <AtTabsPane current={this.state.current} index={0} >
+            <View style='text-align: center;'>
+              <QuickNews></QuickNews>
+            </View>
+          </AtTabsPane>
+          {/* <AtTabsPane current={this.state.current} index={1}>
           <View style='background-color: #FAFBFC;text-align: center;'><HeadToggle /></View>
-        </AtTabsPane>
-      </AtTabs>
+        </AtTabsPane> */}
+        </AtTabs>
+      </View>
     )
   }
 }

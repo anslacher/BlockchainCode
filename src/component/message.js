@@ -8,10 +8,7 @@ import { AtMessage } from 'taro-ui'
       'type': type,
     })
   }
-
-
-
-
+  
 
 
 export default handleClick
